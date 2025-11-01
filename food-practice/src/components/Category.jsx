@@ -12,7 +12,7 @@ export default function Category() {
         if (resp.ok) {
             const data = await resp.json()
             setCategory(data.categories)
-           
+
         }
 
     }
@@ -21,18 +21,22 @@ export default function Category() {
         getCategory()
     }, [])
 
-console.log(category)
+    console.log(category)
 
 
-    return (<div>
+    return (<div className="row">
+
         {
             category.map((categoryType, index) =>
-            (<CardCategory
-                key={index}
-                category={categoryType}
-            />
+            (<div className="col">
+                <CardCategory
+                    key={index}
+                    category={categoryType}
+                />
+            </div>
             )
             )
         }
+
     </div>)
 }
